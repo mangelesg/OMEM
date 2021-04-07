@@ -43,29 +43,13 @@ First, the data needs to be masked in a propper manner. U and V determine the ma
 
 
 
-\begin{table}[p]
-\begin{minipage}{\textwidth}
-
-\begin{tabular}{ |p{3cm}|p{5cm}|p{2cm}|p{2cm}|  }
-
- \hline
-Field & Long Name & Input File Units & Model Units \\
- \hline
-UVEL$\_$2 & Zonal velocity & $\mathrm{\frac{cm}{s}}$ & $\mathrm{\frac{cm}{s}}$\\
-VVEL$\_$2 & Meridional velocity & $\mathrm{\frac{cm}{s}}$ & $\mathrm{\frac{cm}{s}}$\\
-WVEL$\_$2 & Vertical velocity & $\mathrm{\frac{cm}{s}}$  & $\mathrm{\frac{cm}{s}} $ \footnote{WVEL is calculated from the continuity eq.}\\
-HORDIFF & hHrizontal diffusivity (set to constant value)  &  &  $2e^7$ $\mathrm{\frac{cm}{s^2}}$\\
-KVMIX & Vertical mixing coefficient  &  & $\mathrm{0.25}$ $\mathrm{\frac{cm}{s^2}}$\\
-
-\hline
-
-\end{tabular}
-
-%\end{table}
-
-\end{minipage}
-
-\end{table}
+|Field | Long Name | Input File Units | Model Units (modified in code) |
+|------|-----------|------------------|--------------------------------|
+|UVEL$\_$2 | Zonal velocity | $\mathrm{\frac{cm}{s}}$ | $\mathrm{\frac{cm}{s}}$|
+|VVEL$\_$2 | Meridional velocity | $\mathrm{\frac{cm}{s}}$ | $\mathrm{\frac{cm}{s}}$|
+|WVEL$\_$2 | Vertical velocity| $\mathrm{\frac{cm}{s}}$  | $\mathrm{\frac{cm}{s}} $ \footnote{WVEL is calculated from the continuity eq.}|
+|HORDIFF | hHrizontal diffusivity (set to constant value)  |  |  $2e^7$ $\mathrm{\frac{cm}{s^2}}$|
+|KVMIX | Vertical mixing coefficient  | $\mathrm{0.25}$ $\mathrm{\frac{cm}{s^2}}$|
 
 
 
