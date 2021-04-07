@@ -28,7 +28,7 @@ Open Boundary Conditions were borrowed from a global run of CESM2. But they can 
 |feflux_ventg | Iron flux from vents | micromol Fe/m^2/day | 1.1574e^-6 | nmolFe/cm^2/s|
 
 
-Model units obtained from \url{https://marbl.readthedocs.io/en/latest/usr-guide/GCM-interface/GCM_requirements/forcing_fields.html}; Input File does not conatin units, but the conversion factor and file units are explained at \url{https://www.cesm.ucar.edu/models/cesm1.0/pop2/doc/users/POPecosys_main.html} and \url{https://github.com/ESCOMP/POP2-CESM/blob/master/bld/namelist_files/namelist_defaults_pop.xml}} 
+Model units obtained from https://marbl.readthedocs.io/en/latest/usr-guide/GCM-interface/GCM_requirements/forcing_fields.html; Input File does not conatin units, but the conversion factor and file units are explained at https://www.cesm.ucar.edu/models/cesm1.0/pop2/doc/users/POPecosys_main.html and https://github.com/ESCOMP/POP2-CESM/blob/master/bld/namelist_files/namelist_defaults_pop.xml 
 
 | Surface Forcing | Long Name | Input File Units | Conversion factor | Model Units |
 |-----------------|-----------|------------------|-------------------|-------------|
@@ -65,6 +65,51 @@ First, the data needs to be masked in a propper manner. U and V determine the ma
 
 ## Model Outputs
 
+
+|Model Index | Component | Long Name | Input File Units |
+|------------|-----------|-----------|------------------|
+|0 | PO$_4$ | Dissolved Inorganic Phosphate |  mmol/m^3 |
+|1 | NO$_3$ | Dissolved Inorganic Nitrate |  mmol/m^3 |
+|2 | SiO$_3$ | Dissolved Inorganic Silicate |  mmol/m^3 |
+|3 | NH$_4$ | Dissolved Inorganic Ammonia |  mmol/m^3 |
+|4 | Fe | Dissolved Inorganic Iron |  mmol/m^3 |
+|5 | Lig | Iron Binding Ligand |  mmol/m^3 |
+|6 | DOC | Dissolved Organic Carbon |  mmol/m^3 |
+|7 | DON | Dissolved Organic Nitrogen |  mmol/m^3|
+|8 | DOP | Dissolved Organic Phosphorus |  mmol/m^3|
+|9 | DOPr | Refractory DOP |  mmol/m^3|
+|10 | DONr | Refractory DON |  mmol/m^3|
+|11 | DOCr | Refractory DOC |  mmol/m^3|
+|12 | zooC | Zooplankton Carbon |  mmol/m^3|
+|13 | spC | Small Phytoplankton Carbon |  mmol/m^3 |
+|14 | spP | Small Phytoplankton Phosphorus|  mmol/m^3 |
+|15 | spChl | Small Phytoplankton Chlorophyll|  mmol/m^3 |
+|16 | spFe | Small Phytoplankton Iron |  mmol/m^3 |
+|17 | spCaCO$_3$ |Small Phytoplankton Calcium Carbonate |  mmol/m^3 |
+|18 | diatC | Diatoms Carbon |  mmol/m^3 |
+|19 | diatChl |Diatoms Chlorophyll |  mmol/m^3|
+|20 | diatSi | Diatoms Silicate |  mmol/m^3|
+|21 | diatFe | Diatoms Iron |  mmol/m^3|
+|22 | diatP | Diatoms Phosphorus |  mmol/m^3|
+|23 | diazC | Diazotrophs  Carbon |  mmol/m^3|
+|24 | diazChl | Diazotrophs  Chlorophyll  |  mmol/m^3|
+|25 | diazFe | Diazotrophs  Iron |  mmol/m^3|
+|26 | diazP | Diazotrophs   Phosphorus |  mmol/m^3|
+|27 | PIC soft | Particulate Inorganic Carbon (soft matter) |  mmol/m^3|
+|28 | PIC hard | Particulate Inorganic Carbon (hard matter)  |  mmol/m^3|
+|29 | PSiO$_2$  soft| Particulate Inorganic Silicon  (soft matter)  |  mmol/m^3|
+|30 |  PSiO$_2$  hard | Particulate Inorganic Silicon  (hard matter) |  mmol/m^3|
+|31 | PDUST soft | Sinking Dust (soft) |  mmol/m^3|
+|32 | PDUST hard | Sinking Dust (hard)  |  mmol/m^3|
+|33 | POC soft | Particulate Organic Carbon (soft) |  mmol/m^3|
+|34 | POC hard | Particulate Organic Carbon (hard)  |  mmol/m^3|
+|35 | PFe soft | Particulate Iron (soft) |  mmol/m^3|
+|36 | PFe hard | Particulate Iron (hard)  |  mmol/m^3|
+|37 | POP soft | Particulate Organic Phosphorus (soft)  |  mmol/m^3|
+|38 | POP hard | Particulate Organic Phosphorus (hard)  |  mmol/m^3|
+|39 | QA dust deficit | ? |  mmol/m^3|
+
+Note that  mmol/m^3 = \mu mol/L (micromol/L) = nmol/cm^3, the input initial conditions are in  \mu mol/L. The units were obtained from the file marbl-ecosys-MARBL-e0d512d/src/default\_settings.yaml, the code was downloaded from https://zenodo.org/record/2541008#.YDROgs9KhJE
 
 
 
