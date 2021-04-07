@@ -8,7 +8,7 @@ OMEM is fully written in Python. To look at the original MARBL fortran code visi
 
 OMEM requires daily data for: zonal and meridional velocities, temperature and short wave radiation. The velocities and temperature are in 3D lat-lon-depth, and short wave radiation is 2D (lat-lon). 
 If desired, 2D surfaces fluxes for nitrate, iron and dust can be input (also daily).
-Interior fluxes of iron from deposition and hydrothermal vents can be added.
+Interior fluxes of iron from deposition and hydrothermal vents can be added; these are only lat-lon-depth but do not vary on time.
 Initial Conditions are borrowed from CESM ()
 Open Boundary Conditions were borrowed from a global run of CESM2. But they can be adapted to any fields you may like. They need to be input as 3D arrays and the code calculates the north, south, east and west arrays.
 
