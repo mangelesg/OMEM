@@ -68,10 +68,10 @@ First, the data needs to be masked in a propper manner. U and V determine the ma
 
 |Model Index | Component | Long Name | Input File Units |
 |------------|-----------|-----------|------------------|
-|0 | PO$_4$ | Dissolved Inorganic Phosphate |  mmol/m^3 |
-|1 | NO$_3$ | Dissolved Inorganic Nitrate |  mmol/m^3 |
-|2 | SiO$_3$ | Dissolved Inorganic Silicate |  mmol/m^3 |
-|3 | NH$_4$ | Dissolved Inorganic Ammonia |  mmol/m^3 |
+|0 | PO4 | Dissolved Inorganic Phosphate |  mmol/m^3 |
+|1 | NO3 | Dissolved Inorganic Nitrate |  mmol/m^3 |
+|2 | SiO3 | Dissolved Inorganic Silicate |  mmol/m^3 |
+|3 | NH4 | Dissolved Inorganic Ammonia |  mmol/m^3 |
 |4 | Fe | Dissolved Inorganic Iron |  mmol/m^3 |
 |5 | Lig | Iron Binding Ligand |  mmol/m^3 |
 |6 | DOC | Dissolved Organic Carbon |  mmol/m^3 |
@@ -85,7 +85,7 @@ First, the data needs to be masked in a propper manner. U and V determine the ma
 |14 | spP | Small Phytoplankton Phosphorus|  mmol/m^3 |
 |15 | spChl | Small Phytoplankton Chlorophyll|  mmol/m^3 |
 |16 | spFe | Small Phytoplankton Iron |  mmol/m^3 |
-|17 | spCaCO$_3$ |Small Phytoplankton Calcium Carbonate |  mmol/m^3 |
+|17 | spCaCO_3 |Small Phytoplankton Calcium Carbonate |  mmol/m^3 |
 |18 | diatC | Diatoms Carbon |  mmol/m^3 |
 |19 | diatChl |Diatoms Chlorophyll |  mmol/m^3|
 |20 | diatSi | Diatoms Silicate |  mmol/m^3|
@@ -97,8 +97,8 @@ First, the data needs to be masked in a propper manner. U and V determine the ma
 |26 | diazP | Diazotrophs   Phosphorus |  mmol/m^3|
 |27 | PIC soft | Particulate Inorganic Carbon (soft matter) |  mmol/m^3|
 |28 | PIC hard | Particulate Inorganic Carbon (hard matter)  |  mmol/m^3|
-|29 | PSiO$_2$  soft| Particulate Inorganic Silicon  (soft matter)  |  mmol/m^3|
-|30 |  PSiO$_2$  hard | Particulate Inorganic Silicon  (hard matter) |  mmol/m^3|
+|29 | PSiO2  soft| Particulate Inorganic Silicon  (soft matter)  |  mmol/m^3|
+|30 |  PSiO2  hard | Particulate Inorganic Silicon  (hard matter) |  mmol/m^3|
 |31 | PDUST soft | Sinking Dust (soft) |  mmol/m^3|
 |32 | PDUST hard | Sinking Dust (hard)  |  mmol/m^3|
 |33 | POC soft | Particulate Organic Carbon (soft) |  mmol/m^3|
