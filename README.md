@@ -12,6 +12,30 @@ Interior fluxes of iron from deposition and hydrothermal vents can be added; the
 Initial Conditions are borrowed from CESM ()
 Open Boundary Conditions were borrowed from a global run of CESM2. But they can be adapted to any fields you may like. They need to be input as 3D arrays and the code calculates the north, south, east and west arrays.
 
+|Field | Long Name | Input File Units | Model Units (modified in code) |
+|------|-----------|------------------|--------------------------------|
+|U (uvelg) | Zonal velocity | cm/s | cm/s|
+|V (vvelg)| Meridional velocity | cm/s| cm/s|
+|W (wcontg) | Vertical velocity| cm/s  | cm/s (W is calculated from the continuity eq.)|
+|hordiff | horizontal diffusivity (set to constant value)  |  |  2e^7 cm/s^2|
+|KVMIX (kvmix) | Vertical mixing coefficient  | 0.25 cm/s^2|
+
+|Interior Forcing | Long Name | Input File Units | Conversion Factor | Model Units |
+|-----------------|-----------|------------------|-------------------|-------------|
+|qswg | Shortwave radiation | W/m^2 | 1 |W/m^2|
+|tempg | Tempreature | C| 1 |  C|
+|feflux_sedg  | Iron flux from sediment deposition  | micromol Fe/m^2/day | 1.1574e^-6 | nmolFe/cm^2/s|
+|feflux_ventg | Iron flux from vents | micromol Fe/m^2/day | 1.1574e^-6 | nmolFe/cm^2/s|
+
+
+Model units obtained from \url{https://marbl.readthedocs.io/en/latest/usr-guide/GCM-interface/GCM_requirements/forcing_fields.html}; Input File does not conatin units, but the conversion factor and file units are explained at \url{https://www.cesm.ucar.edu/models/cesm1.0/pop2/doc/users/POPecosys_main.html} and \url{https://github.com/ESCOMP/POP2-CESM/blob/master/bld/namelist_files/namelist_defaults_pop.xml}} 
+
+| Surface Forcing | Long Name | Input File Units | Conversion factor | Model Units |
+|-----------------|-----------|------------------|-------------------|-------------|
+|feflux_solg | Iron dust flux| kg/m^2/s|  6.2668e^4 (3.5% iron per weight)  |  nmol/cm^2/s | 
+|dustg  | Dust deposition |   |  kg N/m^2/s | 7.1429e^6 |nmol/cm^2/s | 
+|NOxg  | Nitrogen deposition |  kg N/m^2/s  |  7.1429e^6 | nmol/cm^2/s  | 
+
 
 ## How to run:
 First, the data needs to be masked in a propper manner. U and V determine the masking of the data. 
@@ -43,13 +67,7 @@ First, the data needs to be masked in a propper manner. U and V determine the ma
 
 
 
-|Field | Long Name | Input File Units | Model Units (modified in code) |
-|------|-----------|------------------|--------------------------------|
-|UVEL$\_$2 | Zonal velocity | $\mathrm{\frac{cm}{s}}$ | $\mathrm{\frac{cm}{s}}$|
-|VVEL$\_$2 | Meridional velocity | $\mathrm{\frac{cm}{s}}$ | $\mathrm{\frac{cm}{s}}$|
-|WVEL$\_$2 | Vertical velocity| $\mathrm{\frac{cm}{s}}$  | $\mathrm{\frac{cm}{s}} $ \footnote{WVEL is calculated from the continuity eq.}|
-|HORDIFF | hHrizontal diffusivity (set to constant value)  |  |  $2e^7$ $\mathrm{\frac{cm}{s^2}}$|
-|KVMIX | Vertical mixing coefficient  | $\mathrm{0.25}$ $\mathrm{\frac{cm}{s^2}}$|
+
 
 
 
