@@ -25,7 +25,9 @@ First, the data needs to be masked in a propper manner. U and V determine the ma
 - continuity.py calculates W from U and V.
 - run_saver.py saves the output at the desired frequency.
 
-- run.py processes and masks the data, aldo calls continity.py to calculate W; it also calls main.py to run the model and run_saver.py to save the output.
+- process_inputs.py processes and masks the necesary input data
+
+- run.py calls process_input.py if necesary to process the data, then calls continity.py to calculate W; it also calls main.py to run the model and run_saver.py to save the output.
 
 - main.py contains the main code that evolves the equations on time, it calls ecosys.py and adv_diff.py
 
