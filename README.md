@@ -23,7 +23,7 @@ First, the data needs to be masked in a propper manner. U and V determine the ma
 
 - utilies.py has several usefull tools to  inteprolate fro monthy to daily data, and contains a function to calculate latitudinal weights used on the x-grid spacing.
 - continuity.py calculates W from U and V.
-- run_saver.py saves the output at the desired frequency.
+- saver.py saves the output at the desired frequency.
 
 - process_inputs.py processes and masks the necesary input data
 
@@ -31,11 +31,12 @@ First, the data needs to be masked in a propper manner. U and V determine the ma
 
 - main.py contains the main code that evolves the equations on time, it calls ecosys.py and adv_diff.py
 
-- ecosys.py contains the ecosystem equations
+- ecosystem.py contains the ecosystem equations
 - ecosys_constants.py contains all the necesary constants used in the ecosys.py module
 
 - adv_diff.py contains the offline advection-diffusion scheme.
 
+-density.py calculates the density at level k, and the density adiabatically displaced to level k+1, this is used if convective adjustment is activated
 
 
 ## Model Outputs
