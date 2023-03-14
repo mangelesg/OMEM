@@ -2,7 +2,9 @@
 
 ## Contents:
 [1. Model Description](#description)
+
 [2. How to Use](#use)
+
 [3. Example of results: Effect of a tropical cyclone on the Kuroshio region’s primary productivty](#example)
 
 <a name="description"/>
@@ -52,6 +54,7 @@ Model units obtained from https://marbl.readthedocs.io/en/latest/usr-guide/GCM-i
 |NOxg  | Nitrogen deposition |  kg N/m^2/s  |  7.1429e^6 | nmol/cm^2/s  | 
 
 <a name="use"/>
+
 ## 2. How to Use:
 Copy this repository into your computer. Add all the input files that you need in the same directory. 
 
@@ -130,6 +133,7 @@ Note that  mmol/m^3 = \mu mol/L (micromol/L) = nmol/cm^3, the input initial cond
 
 
 <a name="example"/>
+
 ## 3. Example: Effect of a tropical cyclone on the Kuroshio region’s primary productivty
 
 I created this model for my PhD thesis, which can be found at [https://scholarspace.manoa.hawaii.edu/items/b8ae1b00-a65a-425d-9b21-2acb495068c3/full]. The initial and open boundary conditions, as well as the surface and interior fluxes, are obtained from a historical climatology (1950-1960) of the low resolution (1 degree) run of the Community Earth System Model 2 (CESM2). One year of daily velocities, temperature and short wave radiation are borrowed from the parent model CESM1.2.2 (Small et al., 2014), which runs under present-day fixed CO2 concentration of 367 ppm. The oceanic currents featured by CESM 1.2.2 are further described by Chu et al. (2020). The online simulations of CESM2 and CESM1.2.2 were run on the Aleph supercomputer from the Institute for Basic Science (IBS) Center for Climate Physics (ICCP) in Busan, Korea. The offline model is run on a personal computer, with a 2.3 GHz 8-Core Intel Core i9 processor, and it takes 4.5 days to run 1 simulation year, with a time step of 400 s. 
