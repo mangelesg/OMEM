@@ -1,7 +1,21 @@
-# OMEM
-The Offline Marine Ecosystem Model is based on the Community Earth System Model (CESM) code. The OMEM's marine ecosystem is borrowed - except for some changes- from the Marine Biogeochemistry Library (MARBL). The offline advection-diffusion scheme is based on the Parallel Ocean Program (POP).
+# Offline Marine Ecosystem Model (OMEM)
+
+## Contents:
+[1. Model Description](#description)
+2. How to Use
+3. Example of results: Effect of a tropical cyclone on the Kuroshio region’s primary productivty
+
+<a name="description"/>
+## 1. Model Description
+
+
+The Offline Marine Ecosystem Model (OMEM) consists on a physical and marine ecosystem components forced with ocean currents, temperature and radiation from a parent model. The physical component includes an advection-diffusion scheme forced by zonal and meridional velocities. 
+The offline model is based on the Community Earth System Model (CESM) code. The OMEM's marine ecosystem is borrowed - except for some changes- from the Marine Biogeochemistry Library (MARBL) of CESM. The offline advection-diffusion scheme is based on the Parallel Ocean Program (POP). 
+The offline model also features inputs for surface deposition of dust, iron, nitrate and ammonia and interior sources of hydrothermal and sedimentary iron.
+
 
 OMEM is fully written in Python. To look at the original MARBL fortran code visit https://github.com/marbl-ecosys/MARBL, and to obtain more information about POP go to https://github.com/ESCOMP/POP2-CESM. 
+
 
 
 ## Input data:
@@ -37,7 +51,8 @@ Model units obtained from https://marbl.readthedocs.io/en/latest/usr-guide/GCM-i
 |NOxg  | Nitrogen deposition |  kg N/m^2/s  |  7.1429e^6 | nmol/cm^2/s  | 
 
 
-## How to run:
+## 2. How to Use 
+
 First, the data needs to be masked in a propper manner. U and V determine the masking of the data. 
 1- The input data (except U and V) cannot have any masked elements (it has to be interpolated over land), so the first part of the code multiplies the input fields by the correct mask.
 2- Then vertical velocity (W) is calculated using the continuity equation.
@@ -113,6 +128,12 @@ Note that  mmol/m^3 = \mu mol/L (micromol/L) = nmol/cm^3, the input initial cond
 
 
 
+# How to use it:
+Copy this repository into your computer. Add all the input files that you need in the same directory.
+
+## 3. Example: Effect of a tropical cyclone on the Kuroshio region’s primary productivty
+
+I created this model for my PhD thesis, which can be found at [https://scholarspace.manoa.hawaii.edu/items/b8ae1b00-a65a-425d-9b21-2acb495068c3/full]. The initial and open boundary conditions, as well as the surface and interior fluxes, are obtained from a historical climatology (1950-1960) of the low resolution (1 degree) run of the Community Earth System Model 2 (CESM2). One year of daily velocities, temperature and short wave radiation are borrowed from the parent model CESM1.2.2 (Small et al., 2014), which runs under present-day fixed CO2 concentration of 367 ppm. The oceanic currents featured by CESM 1.2.2 are further described by Chu et al. (2020). The online simulations of CESM2 and CESM1.2.2 were run on the Aleph supercomputer from the Institute for Basic Science (IBS) Center for Climate Physics (ICCP) in Busan, Korea. The offline model is run on a personal computer, with a 2.3 GHz 8-Core Intel Core i9 processor, and it takes 4.5 days to run 1 simulation year, with a time step of 400 s. 
 
 
 
