@@ -152,5 +152,26 @@ The initial and open boundary conditions, as well as the surface and interior fl
 
 
 <img width="350" alt="Screenshot 2023-03-14 at 9 36 50 AM" src="https://user-images.githubusercontent.com/5301113/225020395-3f5f1200-a95d-4e28-937d-577824abe2ce.png">
-<em>Model Domain</em>
+<em>Figure 1. Model spatial domain (Kuroshio Region). </em>
+
+
+Tropical storms can generate intense oceanic vertical velocities along their tracks. These short pulses of vertical upwelling generate low temperature anomalies that can lasts days to weeks and usually penetrate deep below the mixed layer depth (Price, 1981, Jaimes and Shay, 2015). These disturbances also affect the marine ecosystem, but the strength of the anomalies depends largely on the TC characteristics and the oceanic conditions beneath the surface. In this study, the impacts of two tropical cyclones on the nutrients, phytoplankton and zooplankton are analyzed.
+
+The two tropical cyclones selected for an in-depth analysis are TC 382 that crossed the domain during days 196 to 199, and TC 390 which circulated thirty days later (days 227-230) over a similar path than TC 382. The storms’ tracks as well as the sea surface heigh anomalies (SSHA) before, during and after the TCs are depicted on the figure below. The SSH anomalies are calculated respect to the annual mean; thus, they have a small seasonal signal. 
+
+
+
+
+<img width="1316" alt="Screenshot 2023-03-14 at 9 52 32 AM" src="https://user-images.githubusercontent.com/5301113/225022879-7b912c9e-bb7e-42a6-9f73-5a78274fb410.png">
+<em> Figure 2. Sea surface height anomalies, averaged over 5 days intervals. The time intervals represent pre, during and post TC conditions, for the subsequent TC 382 and TC390. </em>
+
+
+
+In the offline simulation, most tropical cyclones did not have a major influence on chlorophyll concentration. However, TC 382 produced a sub-surface enhancement of chlorophyll concentration (Figure 3). The subsurface concentration was 0.2 mg/m3 during days -10 to 10 relative to TC arrival, but 10 days after the TC the concentration increased to 0.6 mg/m3. At surface, a slight increase from 0.03 mg/m3 to 0.05 mg/m3 was observed during the TC, and it decayed fast in the 10 following days. These values were calculated on a circle of radius 100km centered at the TC strongest impact location.
+
+
+![chla_anoms2](https://user-images.githubusercontent.com/5301113/225023374-b38505cd-4293-4a94-bd48-adfc7e23cfff.png)
+<em> Figure 3. Chlorophyll anomalies induced by TC 382. Color contours of tracer anomalies (in mg/m2) integrated in the top 50 m. The anomalies are calculated as daily values minus the average of the 20 days previous to the maximum TC impact day (days 177-197). Blue colors indicate an increase on tracer concentration. The black dashed lines indicate the storm track and the stars represent the storm position at a given day. </em>
+
+
 
