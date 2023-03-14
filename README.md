@@ -11,23 +11,22 @@
 
 ## 1. Model Description
 
+I created the  Offline Marine Ecosystem Model (OMEM) for my Ph.D. dissertation, which can be found at [https://scholarspace.manoa.hawaii.edu/items/b8ae1b00-a65a-425d-9b21-2acb495068c3/full]. The model consists on a physical and marine ecosystem components forced with ocean currents, temperature and radiation from a parent model. The physical component includes an advection-diffusion scheme forced by zonal and meridional velocities. The marine ecosystem features nutrients, phytoplankton, zooplankton, dissolved organic matter and particulate matter. A more complete description of the model is in the link to my dissertation above.
 
-The Offline Marine Ecosystem Model (OMEM) consists on a physical and marine ecosystem components forced with ocean currents, temperature and radiation from a parent model. The physical component includes an advection-diffusion scheme forced by zonal and meridional velocities. 
-The offline model is based on the Community Earth System Model (CESM) code. The OMEM's marine ecosystem is borrowed - except for some changes- from the Marine Biogeochemistry Library (MARBL) of CESM. The offline advection-diffusion scheme is based on the Parallel Ocean Program (POP). 
+All the biogeochemical tracers require an initial condition and a climatology for the domain’s open boundaries. The offline model also features inputs for surface deposition of dust, iron, nitrate and ammonia and interior sources of hydrothermal and sedimentary iron.
+
+The offline model is based on the Community Earth System Model (CESM) code. The OMEM's marine ecosystem is borrowed - except for some changes- from the Marine Biogeochemistry Library (MARBL) [https://github.com/marbl-ecosys/MARBL]. The offline advection-diffusion scheme is based on the Parallel Ocean Program (POP) [to https://github.com/ESCOMP/POP2-CESM]. 
 The offline model also features inputs for surface deposition of dust, iron, nitrate and ammonia and interior sources of hydrothermal and sedimentary iron.
-
-
-OMEM is fully written in Python. To look at the original MARBL fortran code visit https://github.com/marbl-ecosys/MARBL, and to obtain more information about POP go to https://github.com/ESCOMP/POP2-CESM. 
+OMEM is fully written in Python.
 
 
 
-## Input data:
+### Input data:
 
 OMEM requires daily data for: zonal and meridional velocities, temperature and short wave radiation. The velocities and temperature are in 3D lat-lon-depth, and short wave radiation is 2D (lat-lon). 
 If desired, 2D surfaces fluxes for nitrate, iron and dust can be input (also daily).
 Interior fluxes of iron from deposition and hydrothermal vents can be added; these are only lat-lon-depth but do not vary on time.
-Initial Conditions are borrowed from CESM ()
-Open Boundary Conditions were borrowed from a global run of CESM2. But they can be adapted to any fields you may like. They need to be input as 3D arrays and the code calculates the north, south, east and west arrays.
+Initial Conditions and Boundary conditions can be borrowed from a low resolution parent model (for example CESM). They need to be input as 3D arrays and the code calculates the north, south, east and west arrays.
 
 |Field | Long Name | Input File Units | Model Units (modified in code) |
 |------|-----------|------------------|--------------------------------|
@@ -53,37 +52,12 @@ Model units obtained from https://marbl.readthedocs.io/en/latest/usr-guide/GCM-i
 |dustg  | Dust deposition |   |  kg N/m^2/s | 7.1429e^6 |nmol/cm^2/s | 
 |NOxg  | Nitrogen deposition |  kg N/m^2/s  |  7.1429e^6 | nmol/cm^2/s  | 
 
-<a name="use"/>
-
-## 2. How to Use:
-Copy this repository into your computer. Add all the input files that you need in the same directory. 
-
-First, the data needs to be masked in a propper manner. U and V determine the masking of the data. 
-1- The input data (except U and V) cannot have any masked elements (it has to be interpolated over land), so the first part of the code multiplies the input fields by the correct mask.
-2- Then vertical velocity (W) is calculated using the continuity equation.
-3- Two latitudes and longitues are lost due to the processes of masking and W calculation. Also, the deepst most vertical level is removed, since the input initial conditions did not contain this level (this can be easily changed).
-
-### Modules Files:
-
-- utilies.py has several usefull tools to  inteprolate fro monthy to daily data, and contains a function to calculate latitudinal weights used on the x-grid spacing.
-- continuity.py calculates W from U and V.
-- saver.py saves the output at the desired frequency.
-
-- process_inputs.py processes and masks the necesary input data
-
-- run.py calls process_input.py if necesary to process the data, then calls continity.py to calculate W; it also calls main.py to run the model and run_saver.py to save the output.
-
-- main.py contains the main code that evolves the equations on time, it calls ecosys.py and adv_diff.py
-
-- ecosystem.py contains the ecosystem equations
-- ecosys_constants.py contains all the necesary constants used in the ecosys.py module
-
-- adv_diff.py contains the offline advection-diffusion scheme.
-
--density.py calculates the density at level k, and the density adiabatically displaced to level k+1, this is used if convective adjustment is activated
 
 
-## Model Outputs
+
+
+
+### Model Outputs
 
 
 |Model Index | Component | Long Name | Input File Units |
@@ -131,12 +105,51 @@ First, the data needs to be masked in a propper manner. U and V determine the ma
 
 Note that  mmol/m^3 = \mu mol/L (micromol/L) = nmol/cm^3, the input initial conditions are in  \mu mol/L. The units were obtained from the file marbl-ecosys-MARBL-e0d512d/src/default\_settings.yaml, the code was downloaded from https://zenodo.org/record/2541008#.YDROgs9KhJE
 
+<a name="use"/>
+
+## 2. How to Use:
+Copy this repository into your computer. Add all the input files that you need in the same directory. 
+
+First, the data needs to be masked in a propper manner. U and V determine the masking of the data. 
+1- The input data (except U and V) cannot have any masked elements (it has to be interpolated over land), so the first part of the code multiplies the input fields by the correct mask.
+2- Then vertical velocity (W) is calculated using the continuity equation, using U and V.
+3- Two latitudes and longitues are lost at the boundaries of the domain due to the processes of masking and W calculation. Also, the deepst most vertical level is removed, since the input initial conditions did not contain this level (this can be easily changed).
+
+### Modules Files:
+
+- utilies.py has several usefull tools to  inteprolate from monthy to daily data, and contains a function to calculate latitudinal weights used on the x-grid spacing.
+- continuity.py calculates W from U and V.
+- saver.py saves the output at the desired frequency.
+
+- process_inputs.py processes and masks the necesary input data
+
+- run.py calls process_input.py if necesary to process the data, then calls continity.py to calculate W; it also calls main.py to run the model and run_saver.py to save the output.
+
+- main.py contains the main code that evolves the equations on time, it calls ecosys.py and adv_diff.py
+
+- ecosystem.py contains the ecosystem equations
+- ecosys_constants.py contains all the necesary constants used in the ecosys.py module
+
+- adv_diff.py contains the offline advection-diffusion scheme.
+
+-density.py calculates the density at level k, and the density adiabatically displaced to level k+1, this is used if convective adjustment is activated
+
+
+
+
+
 
 <a name="example"/>
 
 ## 3. Example: Effect of a tropical cyclone on the Kuroshio region’s primary productivty
 
-I created this model for my PhD thesis, which can be found at [https://scholarspace.manoa.hawaii.edu/items/b8ae1b00-a65a-425d-9b21-2acb495068c3/full]. The initial and open boundary conditions, as well as the surface and interior fluxes, are obtained from a historical climatology (1950-1960) of the low resolution (1 degree) run of the Community Earth System Model 2 (CESM2). One year of daily velocities, temperature and short wave radiation are borrowed from the parent model CESM1.2.2 (Small et al., 2014), which runs under present-day fixed CO2 concentration of 367 ppm. The oceanic currents featured by CESM 1.2.2 are further described by Chu et al. (2020). The online simulations of CESM2 and CESM1.2.2 were run on the Aleph supercomputer from the Institute for Basic Science (IBS) Center for Climate Physics (ICCP) in Busan, Korea. The offline model is run on a personal computer, with a 2.3 GHz 8-Core Intel Core i9 processor, and it takes 4.5 days to run 1 simulation year, with a time step of 400 s. 
+In this study, I use an offline simulation of a complex ecosystem model to quantify the impact of two tropical cyclones (TCs) on the Kuroshio region’s ecosystem, and to elucidate the responses of different nutrients and phytoplankton groups through the water column. A similar study was conducted by Pan et al. (2017); the authors used a regional model to study the bloom genesis in the South China Sea. They found half of the blooms occurring at surface, and only less than 1% were subsurface blooms. The question remains, wether the dynamics are similar for the Kuroshio region with a much deeper-nutricline.
+In particular, I aim to answer the following questions: 1) which are the ecosystem’s changes and dynamics during a TC event? 2) are the chlorophyll changes in the upper layer the result of biological activity or sub-surface physical processes? 3) which are some mechanisms promoting the phytoplankton blooms in the region?
+To answer these questions we use the offline marine ecosystem model described previously, consisting on an offline advection-diffusion equation coupled with a marine ecosystem model based on the Marine Biogeochemistry Library (MARBL) code. The simulation features tropical cyclones, described by Chu et al. (2020). We select two subsequent TCs that interacted with the same cyclonic-eddy for an in-depth analysis; their characteristics and influence on the cold-core eddy are described, as well as their physical impact on the ecosystem’s primary productivity. The limitations of the ecosystem model and the future expansion of this preliminary work are described at the end of the chapter.
 
+The initial and open boundary conditions, as well as the surface and interior fluxes, are obtained from a historical climatology (1950-1960) of the low resolution (1 degree) run of the Community Earth System Model 2 (CESM2). One year of daily velocities, temperature and short wave radiation are borrowed from the parent model CESM1.2.2 (Small et al., 2014), which runs under present-day fixed CO2 concentration of 367 ppm. The oceanic currents featured by CESM 1.2.2 are further described by Chu et al. (2020). The online simulations of CESM2 and CESM1.2.2 were run on the Aleph supercomputer from the Institute for Basic Science (IBS) Center for Climate Physics (ICCP) in Busan, Korea. The offline model is run on a personal computer, with a 2.3 GHz 8-Core Intel Core i9 processor, and it takes 4.5 days to run 1 simulation year, with a time step of 400 s. 
+
+
+<img width="385" alt="Screenshot 2023-03-14 at 9 36 50 AM" src="https://user-images.githubusercontent.com/5301113/225020395-3f5f1200-a95d-4e28-937d-577824abe2ce.png">
 
 
