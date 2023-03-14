@@ -150,6 +150,7 @@ To answer these questions we use the offline marine ecosystem model described pr
 The initial and open boundary conditions, as well as the surface and interior fluxes, are obtained from a historical climatology (1950-1960) of the low resolution (1 degree) run of the Community Earth System Model 2 (CESM2). One year of daily velocities, temperature and short wave radiation are borrowed from the parent model CESM1.2.2 (Small et al., 2014), which runs under present-day fixed CO2 concentration of 367 ppm. The oceanic currents featured by CESM 1.2.2 are further described by Chu et al. (2020). The online simulations of CESM2 and CESM1.2.2 were run on the Aleph supercomputer from the Institute for Basic Science (IBS) Center for Climate Physics (ICCP) in Busan, Korea. The offline model is run on a personal computer, with a 2.3 GHz 8-Core Intel Core i9 processor, and it takes 4.5 days to run 1 simulation year, with a time step of 400 s. 
 
 
-<img width="350" alt="Screenshot 2023-03-14 at 9 36 50 AM" src="https://user-images.githubusercontent.com/5301113/225020395-3f5f1200-a95d-4e28-937d-577824abe2ce.png">
 
+<img width="350" alt="Screenshot 2023-03-14 at 9 36 50 AM" src="https://user-images.githubusercontent.com/5301113/225020395-3f5f1200-a95d-4e28-937d-577824abe2ce.png">
+*Model Domain*
 
