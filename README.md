@@ -160,9 +160,7 @@ Tropical storms can generate intense oceanic vertical velocities along their tra
 The two tropical cyclones selected for an in-depth analysis are TC 382 that crossed the domain during days 196 to 199, and TC 390 which circulated thirty days later (days 227-230) over a similar path than TC 382. The storms’ tracks as well as the sea surface heigh anomalies (SSHA) before, during and after the TCs are depicted on the figure below. The SSH anomalies are calculated respect to the annual mean; thus, they have a small seasonal signal. 
 
 
-
-
-<img width="1316" alt="Screenshot 2023-03-14 at 9 52 32 AM" src="https://user-images.githubusercontent.com/5301113/225022879-7b912c9e-bb7e-42a6-9f73-5a78274fb410.png">
+![ekman_eddy_git](https://user-images.githubusercontent.com/5301113/225025175-81a62436-4893-4dce-944f-89e9c8cf2682.png)
 <em> Figure 2. Sea surface height anomalies, averaged over 5 days intervals. The time intervals represent pre, during and post TC conditions, for the subsequent TC 382 and TC390. </em>
 
 
@@ -174,4 +172,7 @@ In the offline simulation, most tropical cyclones did not have a major influence
 <em> Figure 3. Chlorophyll anomalies induced by TC 382. Color contours of tracer anomalies (in mg/m2) integrated in the top 50 m. The anomalies are calculated as daily values minus the average of the 20 days previous to the maximum TC impact day (days 177-197). Blue colors indicate an increase on tracer concentration. The black dashed lines indicate the storm track and the stars represent the storm position at a given day. </em>
 
 
+Finally, Figure 4 shows that the different planktonic groups had varied responses at depth. Small phytoplankton carbon increased by 50% mostly between 20-40m, diatoms increased by 11 % at 20-60m, and diazothrops decreased by 20% due to a large decrease below 60m. The zooplankton carbon increased only by 5%. Although a small increase, zooplankton may play an important role in the export fo carbon, due to fecal pellets and transfer of carbon to higher trophic levels. It is important to consider, that the results here presented may vary depending on the dominant group. In the offline model, small phytoplankton largely dominates over the two other groups and it may outcompete them during TCs.
 
+![profilesc](https://user-images.githubusercontent.com/5301113/225025574-fcb7c9b7-d1c8-4b6a-8e1a-551053f2ec21.png)
+<em> Figure 4. Primary productivity anomalies induced by TCs. Profiles of mean carbon concentration of a) small phytoplankton, b) diatoms and c) diazothrops, before TC 382 arrival at days -20 to 0 (dashed blue), during the TC at days 0-10 (red), and post-TC 10-20 (black). The area mean is taken over a circle of radios 150 km, centered at the TC location on day 196.</em>
