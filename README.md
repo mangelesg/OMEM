@@ -152,5 +152,5 @@ The initial and open boundary conditions, as well as the surface and interior fl
 
 
 <img width="350" alt="Screenshot 2023-03-14 at 9 36 50 AM" src="https://user-images.githubusercontent.com/5301113/225020395-3f5f1200-a95d-4e28-937d-577824abe2ce.png">
-*Model Domain*
+<em>Model Domain</em>
 
